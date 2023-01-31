@@ -1,0 +1,15 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+<div class="featured-section__group">
+    <div class="col-md-12 featured-section">
+        {% if page.featured_section %}
+            <h3 class="featured-section__title">{{ page.featured_section_title }}</h3>
+            <div class="featured-section__contents">
+                {% for childpage in page.featured_section.specific.children|slice:"3" %}
+                    {% include "includes/card/featured-card.html" with page=childpage %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>

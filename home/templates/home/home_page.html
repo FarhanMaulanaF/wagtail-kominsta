@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+{% endblock extra_css %}
+
+
+{% block title %}
+    Beranda
+{% endblock title %}
+    
+
+{% block content %}
+    {% include 'snippets/carousel.html' %}
+    {% include 'snippets/profil.html' %}
+    {% include 'snippets/featured-section.html' %}
+{% endblock content %}

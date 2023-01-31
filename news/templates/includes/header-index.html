@@ -1,0 +1,16 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<!-- section untuk memunculkan "Berita" dan "Introduction" pada News List Page -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="index-header__title">{{ page.title }}</h2>
+        </div>
+        <div class="col-sm-12 col-md-7">
+            {% if page.introduction %}
+                <p class="index-header__introduction">{{ page.introduction }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>

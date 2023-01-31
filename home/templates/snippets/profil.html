@@ -1,0 +1,20 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="container person-page text-center py-5">
+    <div data-aos="zoom-in">
+        <h2 class="profil-header__title">Tentang Kami</h2>
+        <div class="profil-content">
+            {% if page.person or page.quote %}
+            <div>
+                {% image page.person.image fill-400x400-c100 as img %}
+                <span class="d-flex justify-content-center"><img class="person" style="width: 15%;" src="{{img.url}}" alt=""></span>
+            </div>
+            <div>
+                <p class="person-quote">{{ page.quote|safe }}</p>
+                <h4 class="person-name"><small>{{ page.person.name }}</small></h4>
+                <h5 class="person-position"><small>{{ page.person.position }}</small></h5>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

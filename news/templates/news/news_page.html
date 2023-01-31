@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+    {% image self.image fill-1920x600 as hero_img %}
+    {% include "includes/header-news.html" %}  
+
+    <div class="container news-page__contents" style="width: 100%;">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="news__meta">
+                    {% if page.show_writer %}
+                        {% if page.authors %}
+                            <div class="news__avatars">
+                                {% for author in page.authors %}
+                                    <div class="news__author">{% image author.image fill-50x50-c100 class="news__avatar" %}
+                                        {{ author.name }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                </div>
+
+                {{ page.body }}
+
+                {% include 'snippets/carousel.html' %}
+
+                {% if page.get_tags %}
+                    <p class="news__tag-introduction">Temukan lebih banyak posting berita dengan tag serupa</p>
+                    <div class="news-tags news-tags--condensed align-items-center">
+                        <span class="u-sr-only">Filter postingan berita dengan tag</span>
+                        {% for tag in page.get_tags %}
+                            <a href="{{ tag.url }}" class="news-tags__pill">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

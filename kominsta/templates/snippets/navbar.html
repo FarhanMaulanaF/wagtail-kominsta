@@ -1,0 +1,19 @@
+{% load static wagtailcore_tags wagtailimages_tags menu_tags %}
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark align-items-center py-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <span class="title-navbar h3">Diskominsta Kota Magelang</span>
+        </a>
+        <div class="justify-content-end">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            {% block navigation %}
+               {% main_menu template="menus/main_menu.html" sub_menu_template="menus/sub_menu.html" %}
+            {% endblock navigation %}
+        </div>
+    </div>
+</nav>

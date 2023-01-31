@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags gallery_tags %}
+
+
+{% block title %}
+    Galeri
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container gallery__container">
+        <div class="row">
+            <div class="gallery__title">
+                <h2>Galeri</h2>
+            </div>
+            <div class="col-md-8">
+                {% if page.introduction %}
+                    <p class="gallery__introduction">{{ page.introduction }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="gallery__grid">
+            {% gallery page.collection %}
+        </div>
+    </div>
+{% endblock content %}
+

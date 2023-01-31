@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% block title %} 
+    Berita 
+{% endblock title %}
+    
+
+{% block content %}
+    {% if not tag %}
+        {% include "includes/header-index.html" %}
+    {% endif %}
+
+    <div class="container">
+        {% if tag %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="index-header__title">Berita</h2>
+                </div>
+                <div class="col-md-12">
+                    <p class="index-header__introduction">Menampilkan semua berita berdasarkan tag <span class="news-tags__tag">{{ tag }}</span>.</p>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if page.get_child_tags %}
+            <ul class="news-tags">
+                <li><span class="news-tags__pill news-tags__pill--selected">Semua</span></li>
+                {% for tag in page.get_child_tags %}
+                    <li><a class="news-tags__pill" aria-label="Filter berdasarkan tag {{ tag }}" href="{{ tag.url }}">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="news-list">
+            {% if posts %}
+                {% for news in posts %}
+                    {% include "includes/card/news-listing-card.html" %}
+                {% endfor %}
+            {% else %}
+                <div class="col-md-12">
+                    <p>Maaf belum tersedia berita apapun pada halaman ini.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

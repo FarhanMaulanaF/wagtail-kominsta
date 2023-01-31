@@ -1,0 +1,29 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="news-listing-card">
+    <a class="news-listing-card__link" href="{% pageurl news %}">
+        {% if news.image %}
+            <figure class="news-listing-card__image">
+                {% image news.image fill-322x247-c100 loading="lazy" %}
+            </figure>
+        {% endif %}
+        <div class="news-listing-card__contents">
+            <h2 class="news-listing-card__title">{{ news.title }}</h2>
+            {% if news.introduction %}
+                <p class="news-listing-card__introduction">{{ news.introduction|truncatewords:10 }}</p>
+            {% endif %}
+            <p class="news-listing-card__metadata">
+                {% if news.date_published %}
+                    {{ news.date_published }} oleh
+                {% endif %}
+                {% for author in news.authors %}
+                    {{ author }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    </a>
+    <hr class="solid">
+</div>
+
+
+

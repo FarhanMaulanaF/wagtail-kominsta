@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+
+    <div class="container standard-detail p-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    {% if page.introduction %}
+                        <p class="standard-detail__introduction">
+                            {{ page.introduction }}
+                        </p>
+                    {% endif %}
+                    {{ page.body }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

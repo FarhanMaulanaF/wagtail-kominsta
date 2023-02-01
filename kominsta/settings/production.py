@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['farhanfirmansyah.eu.pythonanywhere.com']
+ALLOWED_HOSTS = ['farhanfirmansyah.pythonanywhere.com']
 
 ROOT_URLCONF = "kominsta.urls"
 

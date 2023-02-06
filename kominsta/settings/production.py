@@ -1,10 +1,8 @@
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['farhanmaulanafirmansyah.pythonanywhere.com']
-
-ROOT_URLCONF = "kominsta.urls"
+ALLOWED_HOSTS = ["*"]
 
 SECRET_KEY = "2b_938l%h4*h*r&=xqa_r4zus9spj8m-vq$j=qwk^2kq5irzb9"
 
